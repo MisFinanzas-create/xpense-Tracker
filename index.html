@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🕐 Digital Clock</h1>
+            <p class="subtitle">Real-time clock across multiple time zones</p>
+        </header>
+
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <div class="controls">
+                <!-- Toggle 24/12 Hour Format -->
+                <div class="control-group">
+                    <label for="formatToggle">Time Format:</label>
+                    <select id="formatToggle" class="select-btn">
+                        <option value="24">24-Hour Format</option>
+                        <option value="12">12-Hour Format (AM/PM)</option>
+                    </select>
+                </div>
+
+                <!-- Add Time Zone -->
+                <div class="control-group">
+                    <label for="timezoneSelect">Add Time Zone:</label>
+                    <select id="timezoneSelect" class="select-btn">
+                        <optgroup label="Americas">
+                            <option value="America/New_York">New York (EST/EDT)</option>
+                            <option value="America/Chicago">Chicago (CST/CDT)</option>
+                            <option value="America/Denver">Denver (MST/MDT)</option>
+                            <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+                            <option value="America/Anchorage">Anchorage (AKST/AKDT)</option>
+                            <option value="Pacific/Honolulu">Honolulu (HST)</option>
+                            <option value="America/Toronto">Toronto (EST/EDT)</option>
+                            <option value="America/Mexico_City">Mexico City (CST)</option>
+                            <option value="America/Sao_Paulo">São Paulo (BRT/BRST)</option>
+                            <option value="America/Buenos_Aires">Buenos Aires (ART)</option>
+                        </optgroup>
+                        <optgroup label="Europe">
+                            <option value="Europe/London">London (GMT/BST)</option>
+                            <option value="Europe/Paris">Paris (CET/CEST)</option>
+                            <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+                            <option value="Europe/Madrid">Madrid (CET/CEST)</option>
+                            <option value="Europe/Rome">Rome (CET/CEST)</option>
+                            <option value="Europe/Athens">Athens (EET/EEST)</option>
+                            <option value="Europe/Moscow">Moscow (MSK)</option>
+                            <option value="Europe/Istanbul">Istanbul (EET/EEST)</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="Asia/Dubai">Dubai (GST)</option>
+                            <option value="Asia/Kolkata">India (IST)</option>
+                            <option value="Asia/Bangkok">Bangkok (ICT)</option>
+                            <option value="Asia/Shanghai">Shanghai (CST)</option>
+                            <option value="Asia/Tokyo">Tokyo (JST)</option>
+                            <option value="Asia/Seoul">Seoul (KST)</option>
+                            <option value="Asia/Hong_Kong">Hong Kong (HKT)</option>
+                            <option value="Asia/Singapore">Singapore (SGT)</option>
+                        </optgroup>
+                        <optgroup label="Australia/Pacific">
+                            <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+                            <option value="Australia/Melbourne">Melbourne (AEST/AEDT)</option>
+                            <option value="Australia/Brisbane">Brisbane (AEST)</option>
+                            <option value="Pacific/Auckland">Auckland (NZST/NZDT)</option>
+                            <option value="Pacific/Fiji">Fiji (FJT)</option>
+                        </optgroup>
+                        <optgroup label="Africa">
+                            <option value="Africa/Cairo">Cairo (EET)</option>
+                            <option value="Africa/Lagos">Lagos (WAT)</option>
+                            <option value="Africa/Johannesburg">Johannesburg (SAST)</option>
+                            <option value="Africa/Nairobi">Nairobi (EAT)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Add Button -->
+                <button id="addBtn" class="btn btn-primary">+ Add Time Zone</button>
+            </div>
+        </section>
+
+        <!-- Local Time Display (Always Visible) -->
+        <section class="local-time-section">
+            <div class="local-time-card">
+                <div class="card-header">
+                    <h2>📍 Your Local Time</h2>
+                    <button class="btn-icon" onclick="refreshClock()" title="Refresh">🔄</button>
+                </div>
+                <div class="clock-display local-clock">
+                    <div class="time" id="localTime">00:00:00</div>
+                    <div class="timezone" id="localTimezone">Your Timezone</div>
+                    <div class="date" id="localDate">Loading...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Zones Section -->
+        <section class="timezones-section">
+            <h2>🌍 Other Time Zones</h2>
+            <div id="clocksContainer" class="clocks-grid">
+                <p class="empty-message">No time zones added yet. Select and add one above!</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
